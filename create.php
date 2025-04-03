@@ -1,6 +1,12 @@
 <?php include 'db.php'; ?>
 <?php include 'header.php'; ?>
 
+<?php if (isset($_GET['error'])): ?>
+  <div class="alert alert-danger" role="alert">
+    <?= htmlspecialchars($_GET['error']) ?>
+  </div>
+<?php endif; ?>
+
 <h2 class="mb-4">Agregar Película o Serie</h2>
 
 <form action="store.php" method="POST" class="row g-3">
@@ -44,15 +50,15 @@
   </div>
 
   <div class="col-md-4">
-  <label for="imdb" class="form-label">IMDB</label>
-  <input type="number" class="form-control" id="imdb" name="imdb" step="0.1" min="0" max="10" value="<?= $_POST['imdb'] ?? '' ?>">
-</div>
+    <label for="imdb" class="form-label">IMDB</label>
+    <input type="number" class="form-control" id="imdb" name="imdb" step="0.1" min="0" max="10" value="<?= $_POST['imdb'] ?? '' ?>">
+  </div>
 
   <div class="col-md-6">
     <label for="estado" class="form-label">Estado</label>
     <select class="form-select" id="estado" name="estado">
       <?php
-        $estados = ["Pendiente", "En curso", "Finalizado"];
+        $estados = ["Para ver", "Viendo", "Vista"];
         foreach ($estados as $e) {
           $selected = ($_POST['estado'] ?? '') === $e ? 'selected' : '';
           echo "<option value=\"$e\" $selected>$e</option>";

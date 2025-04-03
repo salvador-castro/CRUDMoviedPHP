@@ -38,7 +38,16 @@ if (isset($_GET['msg'])) {
 <table class="table table-bordered table-hover table-striped shadow-sm">
   <thead class="table-dark">
     <tr>
-      <th>ID</th><th>Título</th><th>Descripción</th><th>Tipo</th><th>Género</th><th>Plataforma</th><th>IMDB</th><th>Estado</th><th>Opinión</th><th class="text-center">⚙️ Acciones</th>
+      <th>ID</th>
+      <th>Título</th>
+      <th>Descripción</th>
+      <th>Tipo</th>
+      <th>Género</th>
+      <th>Plataforma</th>
+      <th>IMDB</th>
+      <th>Estado</th>
+      <th>Opinión</th>
+      <th class="text-center">⚙️ Acciones</th>
     </tr>
   </thead>
   <tbody>
@@ -56,17 +65,25 @@ if (isset($_GET['msg'])) {
         <td>{$row['estado']}</td>
         <td>{$row['opinion']}</td>
         <td class='text-center'>
-          <a href='edit.php?id={$row['id']}' class='btn btn-sm btn-warning me-1'>
-            ✏️ Editar
-          </a>
-          <a href='delete.php?id={$row['id']}' class='btn btn-sm btn-danger' onclick='return confirm(\"¿Estás seguro de que querés eliminar este contenido?\")'>
-            🗑️ Eliminar
-          </a>
+          <div class='d-inline-flex gap-2'>
+            <a href='edit.php?id={$row['id']}' class='btn btn-sm btn-warning' title='Editar' data-bs-toggle='tooltip'>
+              ✏️
+            </a>
+            <a href='delete.php?id={$row['id']}' class='btn btn-sm btn-danger' title='Eliminar' data-bs-toggle='tooltip' onclick='return confirm(\"¿Estás seguro de que querés eliminar este contenido?\")'>
+              🗑️
+            </a>
+          </div>
         </td>
         </tr>";
     }
     ?>
   </tbody>
 </table>
+
+<!-- Activar tooltips de Bootstrap -->
+<script>
+  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+  [...tooltipTriggerList].forEach(el => new bootstrap.Tooltip(el));
+</script>
 
 <?php include 'footer.php'; ?>
