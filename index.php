@@ -2,7 +2,9 @@
 <?php include 'header.php'; ?>
 
 <style>
-  .alert { transition: all 0.3s ease-in-out; }
+  .alert {
+    transition: all 0.3s ease-in-out;
+  }
 </style>
 
 <?php
@@ -14,15 +16,17 @@ if (isset($_GET['msg'])) {
         'borrado'  => '🗑️ Contenido eliminado correctamente.',
         'error'    => '⚠️ Ocurrió un error. Intentalo nuevamente.',
     ];
+
     $tipos = [
         'agregado' => 'success',
         'editado'  => 'primary',
         'borrado'  => 'danger',
         'error'    => 'warning',
     ];
+
     $msg = $_GET['msg'];
     if (array_key_exists($msg, $mensajes)) {
-        echo "<div class='alert alert-{$tipos[$msg]} alert-dismissible fade show' role='alert'>
+        echo "<div id='alerta-msg' class='alert alert-{$tipos[$msg]} alert-dismissible fade show' role='alert'>
                 {$mensajes[$msg]}
                 <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Cerrar'></button>
               </div>";
@@ -32,7 +36,10 @@ if (isset($_GET['msg'])) {
 
 <div class="d-flex justify-content-between align-items-center mb-3">
   <h2 class="mb-0">🎬 Listado de Películas y Series</h2>
-  <a href="create.php" class="btn btn-success">➕ Agregar nuevo</a>
+  <div class="d-flex gap-2">
+    <a href="create.php" class="btn btn-success">➕ Agregar nuevo</a>
+    <a href="exportar_pdf.php" class="btn btn-outline-danger">🧾 Exportar PDF</a>
+  </div>
 </div>
 
 <!-- Formulario de búsqueda -->
@@ -84,8 +91,18 @@ if (isset($_GET['msg'])) {
   </tbody>
 </table>
 
-<!-- Activar tooltips de Bootstrap -->
 <script>
+  // Alertas temporales (10 segundos)
+  const redirigir = () => window.location.href = "index.php";
+  const alerta = document.getElementById("alerta-msg");
+  if (alerta) {
+    setTimeout(() => {
+      alerta.classList.remove("show");
+      alerta.classList.add("fade");
+      redirigir();
+    }, 10000);
+  }
+
   const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
   [...tooltipTriggerList].forEach(el => new bootstrap.Tooltip(el));
 
@@ -98,13 +115,11 @@ if (isset($_GET['msg'])) {
       });
   }
 
-  // Buscar automáticamente al escribir
   ['buscar_titulo', 'buscar_genero', 'tipo', 'estado'].forEach(id => {
     document.getElementById(id).addEventListener('input', buscar);
   });
 
-  // Cargar resultados al iniciar
-  buscar();
+  buscar(); // Cargar al iniciar
 </script>
 
 <?php include 'footer.php'; ?>
