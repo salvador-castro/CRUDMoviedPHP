@@ -1,7 +1,7 @@
 const generos = {
     Película: [
       "Acción", "Animación", "Aventura", "Bélico", "Biográfico", "Ciencia Ficción",
-      "Cine Negro", "Comedia", "Deportivo", "Documental", "Drama", "Fantasía",
+      "Cine Negro", "Comedia", "Comedia Negra", "Deportivo", "Documental", "Drama", "Fantasía",
       "Histórico", "Misterio", "Musical", "Policial", "Romance", "Suspenso",
       "Terror", "Western"
     ],

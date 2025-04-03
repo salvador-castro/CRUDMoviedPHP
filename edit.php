@@ -33,8 +33,8 @@ $row = $result->fetch_assoc();
   <div class="col-md-6">
     <label for="tipo" class="form-label">Tipo</label>
     <select class="form-select" id="tipo" name="tipo" required>
-      <option <?= $row['tipo'] === 'Película' ? 'selected' : '' ?>>Película</option>
-      <option <?= $row['tipo'] === 'Serie' ? 'selected' : '' ?>>Serie</option>
+      <option <?= $row['tipo'] === 'pelicula' ? 'selected' : '' ?>>pelicula</option>
+      <option <?= $row['tipo'] === 'serie' ? 'selected' : '' ?>>serie</option>
     </select>
   </div>
 
@@ -61,9 +61,9 @@ $row = $result->fetch_assoc();
   <div class="col-md-6">
     <label for="estado" class="form-label">Estado</label>
     <select class="form-select" id="estado" name="estado">
-      <option <?= $row['estado'] === 'Pendiente' ? 'selected' : '' ?>>Pendiente</option>
-      <option <?= $row['estado'] === 'En curso' ? 'selected' : '' ?>>En curso</option>
-      <option <?= $row['estado'] === 'Finalizado' ? 'selected' : '' ?>>Finalizado</option>
+      <option <?= $row['estado'] === 'Para ver' ? 'selected' : '' ?>>Para ver</option>
+      <option <?= $row['estado'] === 'Viendo' ? 'selected' : '' ?>>Viendo</option>
+      <option <?= $row['estado'] === 'Vista' ? 'selected' : '' ?>>Vista</option>
     </select>
   </div>
 
