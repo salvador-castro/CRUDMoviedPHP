@@ -44,14 +44,30 @@ $row = $result->fetch_assoc();
   </div>
 
   <div class="col-md-4">
-    <label for="genero" class="form-label">Género</label>
-    <input type="text" class="form-control" id="genero" name="genero" value="<?= htmlspecialchars($row['genero']) ?>">
-  </div>
+  <label for="genero" class="form-label">Género</label>
+  <select class="form-select" id="genero" name="genero" required>
+    <?php
+      $generos = ['Acción', 'Comedia', 'Drama', 'Terror', 'Documental', 'Romance', 'Aventura'];
+      foreach ($generos as $genero) {
+        $selected = $row['genero'] === $genero ? 'selected' : '';
+        echo "<option value=\"$genero\" $selected>$genero</option>";
+      }
+    ?>
+  </select>
+</div>
 
-  <div class="col-md-4">
-    <label for="plataforma" class="form-label">Plataforma</label>
-    <input type="text" class="form-control" id="plataforma" name="plataforma" value="<?= htmlspecialchars($row['plataforma']) ?>">
-  </div>
+<div class="col-md-4">
+  <label for="plataforma" class="form-label">Plataforma</label>
+  <select class="form-select" id="plataforma" name="plataforma" required>
+    <?php
+      $plataformas = ['Netflix', 'Amazon Prime', 'Disney+', 'HBO Max', 'Star+', 'Paramount+', 'Apple TV+'];
+      foreach ($plataformas as $plataforma) {
+        $selected = $row['plataforma'] === $plataforma ? 'selected' : '';
+        echo "<option value=\"$plataforma\" $selected>$plataforma</option>";
+      }
+    ?>
+  </select>
+</div>
 
   <div class="col-md-4">
     <label for="imdb" class="form-label">IMDB</label>

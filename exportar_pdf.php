@@ -1,11 +1,27 @@
 <?php
-require 'vendor/autoload.php';
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+require __DIR__ . '/vendor/autoload.php';
 use Dompdf\Dompdf;
 
 include 'db.php';
 
+// Verificamos conexión a la base de datos
+if ($conn->connect_error) {
+    die("Error de conexión: " . $conn->connect_error);
+}
+
 $sql = "SELECT * FROM contenidos ORDER BY id DESC";
 $result = $conn->query($sql);
+
+if (!$result) {
+    die("Error en la consulta SQL: " . $conn->error);
+}
+
+if ($result->num_rows === 0) {
+    die("No hay registros para exportar.");
+}
 
 // Construir contenido HTML
 $html = "<h2 style='text-align:center;'>Listado de Películas y Series</h2>";
@@ -43,9 +59,13 @@ $html .= "</tbody></table>";
 
 // Generar PDF
 $dompdf = new Dompdf();
-$dompdf->loadHtml($html);
-$dompdf->setPaper('A4', 'landscape');
-$dompdf->render();
-$dompdf->stream("contenidos.pdf", ["Attachment" => false]);
+
+try {
+    $dompdf->loadHtml($html);
+    $dompdf->setPaper('A4', 'landscape');
+    $dompdf->render();
+    $dompdf->stream("contenidos.pdf", ["Attachment" => false]);
+} catch (Exception $e) {
+    echo "Error generando el PDF: " . $e->getMessage();
+}
 exit;
-?>

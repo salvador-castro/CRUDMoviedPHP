@@ -39,6 +39,7 @@ if (isset($_GET['msg'])) {
   <div class="d-flex gap-2">
     <a href="create.php" class="btn btn-success">➕ Agregar nuevo</a>
     <a href="exportar_pdf.php" class="btn btn-outline-danger">🧾 Exportar PDF</a>
+    <button id="modoOscuroBtn" class="btn btn-outline-dark">🌙 Modo oscuro</button>
   </div>
 </div>
 
