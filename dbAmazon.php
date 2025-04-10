@@ -1,8 +1,8 @@
 <?php
 $host = 'localhost';
 $usuario = 'root';
-$password = '';
-$base_de_datos = 'multimedia';
+$password = 'Bartolo';
+$base_de_datos = 'movie_crud';
 
 $conn = new mysqli($host, $usuario, $password, $base_de_datos);
 

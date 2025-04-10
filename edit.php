@@ -20,7 +20,13 @@ if ($result->num_rows === 0) {
 $row = $result->fetch_assoc();
 ?>
 
-<h2 class="mb-4">Editar Película o Serie</h2>
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2 class="mb-4">✏️ Editar Película o Serie</h2> <!-- o el título que tengas -->
+  <div class="d-flex gap-2">
+    <button id="modoOscuroBtn" class="btn btn-outline-dark">🌙 Modo oscuro</button>
+  </div>
+</div>
+
 
 <form action="update.php" method="POST" class="row g-3">
   <input type="hidden" name="id" value="<?= $row['id'] ?>">

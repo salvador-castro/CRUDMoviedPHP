@@ -7,7 +7,12 @@
   </div>
 <?php endif; ?>
 
-<h2 class="mb-4">Agregar Película o Serie</h2>
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2 class="mb-0">➕ Agregar Película o Serie</h2>
+  <div class="d-flex gap-2">
+    <button id="modoOscuroBtn" class="btn btn-outline-dark">🌙 Modo oscuro</button>
+  </div>
+</div>
 
 <form action="store.php" method="POST" class="row g-3">
   <div class="col-md-6">
