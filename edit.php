@@ -33,8 +33,8 @@ $row = $result->fetch_assoc();
   <div class="col-md-6">
     <label for="tipo" class="form-label">Tipo</label>
     <select class="form-select" id="tipo" name="tipo" required>
-      <option <?= $row['tipo'] === 'pelicula' ? 'selected' : '' ?>>pelicula</option>
-      <option <?= $row['tipo'] === 'serie' ? 'selected' : '' ?>>serie</option>
+      <option value="pelicula" <?= $row['tipo'] === 'pelicula' ? 'selected' : '' ?>>pelicula</option>
+      <option value="serie" <?= $row['tipo'] === 'serie' ? 'selected' : '' ?>>serie</option>
     </select>
   </div>
 
@@ -44,30 +44,18 @@ $row = $result->fetch_assoc();
   </div>
 
   <div class="col-md-4">
-  <label for="genero" class="form-label">Género</label>
-  <select class="form-select" id="genero" name="genero" required>
-    <?php
-      $generos = ['Acción', 'Comedia', 'Drama', 'Terror', 'Documental', 'Romance', 'Aventura'];
-      foreach ($generos as $genero) {
-        $selected = $row['genero'] === $genero ? 'selected' : '';
-        echo "<option value=\"$genero\" $selected>$genero</option>";
-      }
-    ?>
-  </select>
-</div>
+    <label for="genero" class="form-label">Género</label>
+    <select class="form-select" id="genero" name="genero">
+      <option value="">-- Seleccionar --</option>
+    </select>
+  </div>
 
-<div class="col-md-4">
-  <label for="plataforma" class="form-label">Plataforma</label>
-  <select class="form-select" id="plataforma" name="plataforma" required>
-    <?php
-      $plataformas = ['Netflix', 'Amazon Prime', 'Disney+', 'HBO Max', 'Star+', 'Paramount+', 'Apple TV+'];
-      foreach ($plataformas as $plataforma) {
-        $selected = $row['plataforma'] === $plataforma ? 'selected' : '';
-        echo "<option value=\"$plataforma\" $selected>$plataforma</option>";
-      }
-    ?>
-  </select>
-</div>
+  <div class="col-md-4">
+    <label for="plataforma" class="form-label">Plataforma</label>
+    <select class="form-select" id="plataforma" name="plataforma">
+      <!-- JS lo completa -->
+    </select>
+  </div>
 
   <div class="col-md-4">
     <label for="imdb" class="form-label">IMDB</label>
@@ -93,5 +81,23 @@ $row = $result->fetch_assoc();
     <a href="index.php" class="btn btn-secondary">Cancelar</a>
   </div>
 </form>
+
+<script>
+  const generoSeleccionado = <?= json_encode($row['genero']) ?>;
+  const tipoSeleccionado = <?= json_encode($row['tipo']) ?>;
+  const plataformaSeleccionada = <?= json_encode($row['plataforma']) ?>;
+</script>
+
+<script src="generos.js"></script>
+<script src="plataformas.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const tipoSelect = document.getElementById("tipo");
+    tipoSelect.addEventListener("change", actualizarGenero);
+    actualizarGenero();
+    cargarPlataformas(plataformaSeleccionada);
+  });
+</script>
 
 <?php include 'footer.php'; ?>
