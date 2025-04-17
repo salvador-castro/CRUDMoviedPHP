@@ -12,7 +12,7 @@ if ($conn->connect_error) {
     die("Error de conexión: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM contenidos ORDER BY id DESC";
+$sql = "SELECT * FROM contenidos ORDER BY id ASC";
 $result = $conn->query($sql);
 
 if (!$result) {
