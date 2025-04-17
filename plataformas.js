@@ -1,5 +1,5 @@
 const plataformas = [
-    "APPLE TV", "DISNEY+", "HBO", "MUBI", "NETFLIX",
+    "APPLE TV", "DISNEY+", "HBO", "MUBI", "NETFLIX", "NO DISPONIBLE",
     "PARAMOUNT", "PRIMEVIDEO", "SALA DE CINE", "YOUTUBE PREMIUM"
   ];
   
