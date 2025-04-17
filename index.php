@@ -67,7 +67,6 @@ if (isset($_GET['msg'])) {
     </select>
   </div>
   <div class="col-md-2 d-flex gap-2">
-    <button type="button" class="btn btn-primary" onclick="buscar()">Buscar</button>
     <a href="index.php" class="btn btn-secondary">Limpiar</a>
   </div>
 </form>
