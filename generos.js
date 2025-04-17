@@ -1,13 +1,13 @@
 const generos = {
   Película: [
     "Acción", "Animación", "Aventura", "Bélico", "Biográfico", "Ciencia Ficción",
-    "Cine Negro", "Comedia", "Comedia Negra", "Deportivo", "Documental", "Drama", "Fantasía",
-    "Histórico", "Misterio", "Musical", "Policial", "Romance", "Suspenso",
+    "Cine Negro", "Comedia", "Comedia Drámatica", "Comedia Negra", "Deportivo", "Documental", 
+    "Drama", "Fantasía", "Histórico", "Misterio", "Musical", "Policial", "Romance", "Suspenso",
     "Terror", "Western"
   ],
   Serie: [
-    "Animación", "Antológica", "Ciencia Ficción", "Comedia", "Crimen", "Documental",
-    "Drama", "Drama Juvenil", "Espionaje", "Fantasía", "Histórico", "Médico",
+    "Animación", "Antológica", "Ciencia Ficción", "Comedia", "Comedia Drámatica", "Crimen", 
+    "Documental", "Drama", "Drama Juvenil", "Espionaje", "Fantasía", "Histórico", "Médico",
     "Misterio", "Policíaco", "Reality Show", "Romance", "Sitcom", "Superhéroes",
     "Terror", "Thriller"
   ]
