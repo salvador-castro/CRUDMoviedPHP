@@ -39,8 +39,8 @@ $row = $result->fetch_assoc();
   <div class="col-md-6">
     <label for="tipo" class="form-label">Tipo</label>
     <select class="form-select" id="tipo" name="tipo" required>
-      <option value="pelicula" <?= $row['tipo'] === 'pelicula' ? 'selected' : '' ?>>pelicula</option>
-      <option value="serie" <?= $row['tipo'] === 'serie' ? 'selected' : '' ?>>serie</option>
+      <option value="Película" <?= $row['tipo'] === 'Película' ? 'selected' : '' ?>>Película</option>
+      <option value="Serie" <?= $row['tipo'] === 'Serie' ? 'selected' : '' ?>>Serie</option>
     </select>
   </div>
 
