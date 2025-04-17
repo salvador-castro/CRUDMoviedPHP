@@ -101,11 +101,9 @@ CRUDMoviesPHP/
 
 ## 🖼️ Screenshots
 
-> _Add your screenshots here for better showcase!_
-
-Example:
-
-![Screenshot](screenshots/dashboard.png)
+![Screenshot](screenshots/CRUD1.PNG)
+![Screenshot](screenshots/CRUD2.PNG)
+![Screenshot](screenshots/CRUD3.PNG)
 
 ---
 
