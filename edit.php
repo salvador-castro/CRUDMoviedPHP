@@ -63,7 +63,7 @@ $row = $result->fetch_assoc();
   </div>
 
   <div class="col-md-4">
-    <label for="imdb" class="form-label">IMDB</label>
+    <label for="imdb" class="form-label">IMDB/FILMAFFINITY</label>
     <input type="text" class="form-control" id="imdb" name="imdb" value="<?= htmlspecialchars($row['imdb']) ?>">
   </div>
 
@@ -94,7 +94,7 @@ $row = $result->fetch_assoc();
 </script>
 
 <script src="genres.js"></script>
-<script src="platforms.js"></script>
+<script src="plataformas.js"></script>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {

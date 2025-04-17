@@ -49,7 +49,7 @@
   </div>
 
   <div class="col-md-4">
-    <label for="imdb" class="form-label">IMDB</label>
+    <label for="imdb" class="form-label">IMDB/FILMAFFINITY</label>
     <input type="number" class="form-control" id="imdb" name="imdb" step="0.1" min="0" max="10" value="<?= $_POST['imdb'] ?? '' ?>">
   </div>
 

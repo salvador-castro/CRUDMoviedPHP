@@ -80,7 +80,7 @@ if (isset($_GET['msg'])) {
       <th>Tipo</th>
       <th>Género</th>
       <th>Plataforma</th>
-      <th>IMDB</th>
+      <th>IMDB-FILMAFFINITY</th>
       <th>Estado</th>
       <th>Opinión</th>
       <th class="text-center">⚙️ Acciones</th>
