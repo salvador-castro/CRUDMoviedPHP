@@ -4,6 +4,10 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+// Función para evitar errores con valores nulos en htmlspecialchars
+function safe($value) {
+    return htmlspecialchars((string) ($value ?? ''));
+}
 
 $where = [];
 
@@ -33,19 +37,19 @@ $result = $conn->query($sql);
 
 while ($row = $result->fetch_assoc()) {
     echo "<tr>
-        <td>" . htmlspecialchars($row['id']) . "</td>
-        <td>" . htmlspecialchars($row['titulo']) . "</td>
-        <td>" . htmlspecialchars($row['descripcion']) . "</td>
-        <td>" . htmlspecialchars($row['tipo']) . "</td>
-        <td>" . htmlspecialchars($row['genero']) . "</td>
-        <td>" . htmlspecialchars($row['plataforma']) . "</td>
-        <td>" . htmlspecialchars($row['imdb']) . "</td>
-        <td>" . htmlspecialchars($row['estado']) . "</td>
-        <td>" . htmlspecialchars($row['opinion']) . "</td>
+        <td>" . safe($row['id']) . "</td>
+        <td>" . safe($row['titulo']) . "</td>
+        <td>" . safe($row['descripcion']) . "</td>
+        <td>" . safe($row['tipo']) . "</td>
+        <td>" . safe($row['genero']) . "</td>
+        <td>" . safe($row['plataforma']) . "</td>
+        <td>" . safe($row['imdb']) . "</td>
+        <td>" . safe($row['estado']) . "</td>
+        <td>" . safe($row['opinion']) . "</td>
         <td class='text-center'>
           <div class='d-inline-flex gap-2'>
-            <a href='edit.php?id=" . $row['id'] . "' class='btn btn-sm btn-warning' title='Editar' data-bs-toggle='tooltip'>✏️</a>
-            <a href='delete.php?id=" . $row['id'] . "' class='btn btn-sm btn-danger' title='Eliminar' data-bs-toggle='tooltip' onclick='return confirm(\\'¿Estás seguro de que querés eliminar este contenido?\\')'>🗑️</a>
+            <a href='edit.php?id=" . urlencode($row['id']) . "' class='btn btn-sm btn-warning' title='Editar' data-bs-toggle='tooltip'>✏️</a>
+            <a href='delete.php?id=" . urlencode($row['id']) . "' class='btn btn-sm btn-danger' title='Eliminar' data-bs-toggle='tooltip' onclick='return confirm(\"¿Estás seguro de que querés eliminar este contenido?\")'>🗑️</a>
           </div>
         </td>
       </tr>";
