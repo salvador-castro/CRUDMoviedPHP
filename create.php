@@ -44,13 +44,7 @@
   <div class="col-md-4">
     <label for="plataforma" class="form-label">Plataforma</label>
     <select class="form-select" id="plataforma" name="plataforma">
-      <?php
-        $plataformas = ["APPLE TV", "DISNEY+", "HBO", "MUBI", "NETFLIX", "PARAMOUNT", "PRIMEVIDEO", "SALA DE CINE", "YOUTUBE PREMIUM"];
-        foreach ($plataformas as $p) {
-          $selected = ($_POST['plataforma'] ?? '') === $p ? 'selected' : '';
-          echo "<option value=\"$p\" $selected>$p</option>";
-        }
-      ?>
+      <!-- JS lo completará -->
     </select>
   </div>
 
@@ -86,7 +80,15 @@
 <script>
   const generoSeleccionado = <?= json_encode($_POST['genero'] ?? '') ?>;
   const tipoSeleccionado = <?= json_encode($_POST['tipo'] ?? '') ?>;
+  const plataformaSeleccionada = <?= json_encode($_POST['plataforma'] ?? '') ?>;
 </script>
 <script src="generos.js"></script>
+<script src="plataformas.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    actualizarGenero();
+    cargarPlataformas(plataformaSeleccionada);
+  });
+</script>
 
 <?php include 'footer.php'; ?>

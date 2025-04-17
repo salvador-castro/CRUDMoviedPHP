@@ -21,12 +21,11 @@ $row = $result->fetch_assoc();
 ?>
 
 <div class="d-flex justify-content-between align-items-center mb-3">
-  <h2 class="mb-4">✏️ Editar Película o Serie</h2> <!-- o el título que tengas -->
+  <h2 class="mb-4">✏️ Editar Película o Serie</h2>
   <div class="d-flex gap-2">
     <button id="modoOscuroBtn" class="btn btn-outline-dark">🌙 Modo oscuro</button>
   </div>
 </div>
-
 
 <form action="update.php" method="POST" class="row g-3">
   <input type="hidden" name="id" value="<?= $row['id'] ?>">
@@ -59,7 +58,7 @@ $row = $result->fetch_assoc();
   <div class="col-md-4">
     <label for="plataforma" class="form-label">Plataforma</label>
     <select class="form-select" id="plataforma" name="plataforma">
-      <!-- JS lo completa -->
+      <!-- JS lo completará -->
     </select>
   </div>
 
