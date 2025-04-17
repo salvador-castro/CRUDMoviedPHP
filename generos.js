@@ -14,12 +14,12 @@ const generos = {
 };
 
 function actualizarGenero() {
-  const tipo = document.getElementById("tipo").value.trim().toLowerCase();
+  const tipo = document.getElementById("tipo").value.trim(); // <--- corregido
   const generoSelect = document.getElementById("genero");
   generoSelect.innerHTML = "";
 
-  let clave = tipo === "pelicula" ? "Película" :
-              tipo === "serie" ? "Serie" : null;
+  let clave = tipo === "Película" ? "Película" :
+              tipo === "Serie" ? "Serie" : null;
 
   if (!clave || !generos[clave]) {
     generoSelect.innerHTML = '<option value="">-- Seleccionar Tipo primero --</option>';
