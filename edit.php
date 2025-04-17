@@ -93,8 +93,8 @@ $row = $result->fetch_assoc();
   const plataformaSeleccionada = <?= json_encode($row['plataforma']) ?>;
 </script>
 
-<script src="generos.js"></script>
-<script src="plataformas.js"></script>
+<script src="genres.js"></script>
+<script src="platforms.js"></script>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {

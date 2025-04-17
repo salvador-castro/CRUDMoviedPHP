@@ -38,7 +38,7 @@ if (isset($_GET['msg'])) {
   <h2 class="mb-0">🎬 Listado de Películas y Series</h2>
   <div class="d-flex gap-2">
     <a href="create.php" class="btn btn-success">➕ Agregar nuevo</a>
-    <a href="exportar_pdf.php" target="_blank" class="btn btn-outline-danger">🧾 Exportar PDF</a>
+    <a href="exportPdf.php" target="_blank" class="btn btn-outline-danger">🧾 Exportar PDF</a>
     <button id="modoOscuroBtn" class="btn btn-outline-dark">🌙 Modo oscuro</button>
   </div>
 </div>
@@ -109,7 +109,7 @@ if (isset($_GET['msg'])) {
 
   function buscar() {
     const datos = new URLSearchParams(new FormData(document.getElementById('form-busqueda')));
-    fetch('buscar.php?' + datos.toString())
+    fetch('search.php?' + datos.toString())
       .then(res => res.text())
       .then(html => {
         document.getElementById('tabla-resultados').innerHTML = html;

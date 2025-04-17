@@ -82,8 +82,8 @@
   const tipoSeleccionado = <?= json_encode($_POST['tipo'] ?? '') ?>;
   const plataformaSeleccionada = <?= json_encode($_POST['plataforma'] ?? '') ?>;
 </script>
-<script src="generos.js"></script>
-<script src="plataformas.js"></script>
+<script src="genres.js"></script>
+<script src="platforms.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     actualizarGenero();
