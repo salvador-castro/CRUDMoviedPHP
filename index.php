@@ -54,8 +54,8 @@ if (isset($_GET['msg'])) {
   <div class="col-md-2">
     <select name="tipo" id="tipo" class="form-select">
       <option value="">🎞️ Tipo</option>
-      <option value="pelicula">pelicula</option>
-      <option value="serie">serie</option>
+      <option value="pelicula">Pelicula</option>
+      <option value="serie">Serie</option>
     </select>
   </div>
   <div class="col-md-2">
@@ -92,7 +92,6 @@ if (isset($_GET['msg'])) {
 </table>
 
 <script>
-  // Alertas temporales (10 segundos)
   const redirigir = () => window.location.href = "index.php";
   const alerta = document.getElementById("alerta-msg");
   if (alerta) {
@@ -106,8 +105,10 @@ if (isset($_GET['msg'])) {
   const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
   [...tooltipTriggerList].forEach(el => new bootstrap.Tooltip(el));
 
-  function buscar() {
-    const datos = new URLSearchParams(new FormData(document.getElementById('form-busqueda')));
+  function buscar(pagina = 1) {
+    const form = new FormData(document.getElementById('form-busqueda'));
+    form.append('pagina', pagina);
+    const datos = new URLSearchParams(form);
     fetch('search.php?' + datos.toString())
       .then(res => res.text())
       .then(html => {
@@ -115,8 +116,12 @@ if (isset($_GET['msg'])) {
       });
   }
 
+  function irPagina(num) {
+    buscar(num);
+  }
+
   ['buscar_titulo', 'buscar_genero', 'tipo', 'estado'].forEach(id => {
-    document.getElementById(id).addEventListener('input', buscar);
+    document.getElementById(id).addEventListener('input', () => buscar(1));
   });
 
   buscar(); // Cargar al iniciar
