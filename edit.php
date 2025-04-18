@@ -94,7 +94,7 @@ $row = $result->fetch_assoc();
 </script>
 
 <script src="genres.js"></script>
-<script src="plataformas.js"></script>
+<script src="platforms.js"></script>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
