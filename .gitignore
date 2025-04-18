@@ -6,3 +6,4 @@ vendor/
 info.php
 dbLocal.php
 indexBackup.php
+db.php
