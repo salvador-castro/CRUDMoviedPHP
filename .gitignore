@@ -3,3 +3,6 @@ amazonWEBCRUD.ppk
 searchBackup.php
 dbAmazon.php
 vendor/
+info.php
+dbLocal.php
+indexBackup.php
