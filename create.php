@@ -49,9 +49,18 @@
   </div>
 
   <div class="col-md-4">
-    <label for="imdb" class="form-label">IMDB/FILMAFFINITY</label>
-    <input type="number" class="form-control" id="imdb" name="imdb" step="0.1" min="0" max="10" value="<?= $_POST['imdb'] ?? '' ?>">
-  </div>
+  <label for="imdb" class="form-label">IMDB/FILMAFFINITY</label>
+  <input 
+    type="text" 
+    inputmode="decimal" 
+    pattern="^\d+([.,]\d{1})?$" 
+    class="form-control" 
+    id="imdb" 
+    name="imdb" 
+    value="<?= $_POST['imdb'] ?? '' ?>" 
+    oninput="this.value = this.value.replace(',', '.')">
+</div>
+
 
   <div class="col-md-6">
     <label for="estado" class="form-label">Estado</label>

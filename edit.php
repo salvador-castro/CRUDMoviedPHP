@@ -64,8 +64,17 @@ $row = $result->fetch_assoc();
 
   <div class="col-md-4">
     <label for="imdb" class="form-label">IMDB/FILMAFFINITY</label>
-    <input type="text" class="form-control" id="imdb" name="imdb" value="<?= htmlspecialchars($row['imdb']) ?>">
+    <input 
+      type="text" 
+      inputmode="decimal" 
+      pattern="^\d+([.,]\d{1})?$" 
+      class="form-control" 
+      id="imdb" 
+      name="imdb" 
+      value="<?= htmlspecialchars($row['imdb']) ?>" 
+      oninput="this.value = this.value.replace(',', '.')">
   </div>
+
 
   <div class="col-md-6">
     <label for="estado" class="form-label">Estado</label>
