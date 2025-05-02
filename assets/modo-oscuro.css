@@ -1,62 +1,67 @@
 /* assets/modo-oscuro.css */
 body.modo-oscuro {
-    background-color: #121212 !important;
-    color: #f0f0f0 !important;
-  }
-  
-  body.modo-oscuro .table {
-    background-color: #1e1e1e;
-    color: #f0f0f0;
-  }
-  
-  body.modo-oscuro .table th {
-    background-color: #2c2c2c;
-    color: #fff;
-  }
-  
-  body.modo-oscuro .form-control,
-  body.modo-oscuro .form-select {
-    background-color: #2c2c2c;
-    color: #fff;
-    border-color: #444;
-  }
-  
-  body.modo-oscuro .btn-outline-dark {
-    border-color: #f0f0f0;
-    color: #f0f0f0;
-  }
-  
-  body.modo-oscuro .btn-outline-dark:hover {
-    background-color: #f0f0f0;
-    color: #121212;
-  }
-  
-  body.modo-oscuro .alert {
-    background-color: #2c2c2c;
-    color: #f0f0f0;
-    border-color: #444;
-  }
-  .dark-mode table {
-    background-color: #333;
-    color: #fff;
+  background-color: #121212 !important;
+  color: #f0f0f0 !important;
 }
-  .dark-mode th {
-    background-color: #444;
-    color: #fff;
-  }
-  .dark-mode td {
-    background-color: #555;
-    color: #fff;
-  }
-  .dark-mode input,
-  .dark-mode select,
-  .dark-mode textarea {
-    background-color: #666;
-    color: #fff;
-    border: 1px solid #777;
-  }
-  .dark-mode button {
-    background-color: #777;
-    color: #fff;
-    border: none;
-  }
+
+/* Tablas */
+body.modo-oscuro .table,
+body.modo-oscuro table {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+body.modo-oscuro .table th,
+body.modo-oscuro th {
+  background-color: #2c2c2c;
+  border: 1px solid #ffffff;
+  color: #fff;
+}
+
+body.modo-oscuro td {
+  background-color: #2c2c2c;
+  color: #f0f0f0;
+}
+
+/* Formularios */
+body.modo-oscuro .form-control,
+body.modo-oscuro .form-select,
+body.modo-oscuro input,
+body.modo-oscuro select,
+body.modo-oscuro textarea {
+  background-color: #2c2c2c;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
+
+/* Botones */
+body.modo-oscuro .btn-outline-dark,
+body.modo-oscuro button {
+  background-color: transparent;
+  border-color: #ffffff;
+  color: #f0f0f0;
+}
+
+body.modo-oscuro .btn-outline-dark:hover {
+  background-color: #f0f0f0;
+  color: #121212;
+}
+
+/* Alertas */
+body.modo-oscuro .alert {
+  background-color: #2c2c2c;
+  color: #f0f0f0;
+  border-color: #ffffff;
+}
+
+.textForm {
+  color: #f0f0f0 !important;
+}
+
+.footer{
+  /*colocar texto en color blanco*/
+  color: #f0f0f0 !important;
+}
+body.modo-oscuro .text-muted {
+  color: #f0f0f0 !important;
+}

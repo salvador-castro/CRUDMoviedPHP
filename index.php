@@ -45,20 +45,20 @@ if (isset($_GET['msg'])) {
 
 <!-- Formulario de búsqueda -->
 <form method="GET" id="form-busqueda" class="row g-2 mb-4">
-  <div class="col-md-3">
+  <div class="col-md-3 textForm">
     <input type="text" name="buscar_titulo" id="buscar_titulo" class="form-control" placeholder="🔍 Buscar por título...">
   </div>
-  <div class="col-md-3">
+  <div class="col-md-3 textForm">
     <input type="text" name="buscar_genero" id="buscar_genero" class="form-control" placeholder="🎭 Buscar por género...">
   </div>
-  <div class="col-md-2">
+  <div class="col-md-2 textForm">
     <select name="tipo" id="tipo" class="form-select">
       <option value="">🎞️ Tipo</option>
       <option value="pelicula">Pelicula</option>
       <option value="serie">Serie</option>
     </select>
   </div>
-  <div class="col-md-2">
+  <div class="col-md-2 textForm">
     <select name="estado" id="estado" class="form-select">
       <option value="">📺 Estado</option>
       <option value="Para ver">Para ver</option>
@@ -105,7 +105,7 @@ if (isset($_GET['msg'])) {
   const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
   [...tooltipTriggerList].forEach(el => new bootstrap.Tooltip(el));
 
-  function buscar(pagina = 1) {
+  function search(pagina = 1) {
     const form = new FormData(document.getElementById('form-busqueda'));
     form.append('pagina', pagina);
     const datos = new URLSearchParams(form);
@@ -117,14 +117,16 @@ if (isset($_GET['msg'])) {
   }
 
   function irPagina(num) {
-    buscar(num);
+    console.log("Página solicitada:", num);
+    search(num); // ✅ ahora llama a la función correcta
   }
 
+
   ['buscar_titulo', 'buscar_genero', 'tipo', 'estado'].forEach(id => {
-    document.getElementById(id).addEventListener('input', () => buscar(1));
+    document.getElementById(id).addEventListener('input', () => search(1));
   });
 
-  buscar(); // Cargar al iniciar
+  search(); // Cargar al iniciar
 </script>
 
 <?php include 'footer.php'; ?>

@@ -1,7 +1,7 @@
 <!-- footer.php -->
 </div> <!-- cierre del container -->
 
-<footer class="text-center mt-5 py-3 border-top">
+<footer class="text-center mt-5 py-3 border-top footer">
   <small class="text-muted">Desarrollado por salvaCastro | © <?= date('Y') ?> Todos los derechos reservados.</small>
 </footer>
 

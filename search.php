@@ -5,7 +5,6 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Armado de condiciones
 $where = [];
 
 if (!empty($_GET['buscar_titulo'])) {
@@ -30,21 +29,17 @@ if (!empty($_GET['estado'])) {
 
 $condicion = count($where) > 0 ? "WHERE " . implode(" AND ", $where) : "";
 
-// Paginación
 $porPagina = 10;
 $pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
 $offset = ($pagina - 1) * $porPagina;
 
-// Total de resultados
 $sqlTotal = "SELECT COUNT(*) AS total FROM contenidos $condicion";
 $total = $conn->query($sqlTotal)->fetch_assoc()['total'];
 $totalPaginas = ceil($total / $porPagina);
 
-// Consulta principal
 $sql = "SELECT * FROM contenidos $condicion ORDER BY id DESC LIMIT $offset, $porPagina";
 $resultado = $conn->query($sql);
 
-// Mostrar resultados
 if ($resultado->num_rows > 0) {
     while ($fila = $resultado->fetch_assoc()) {
         echo "<tr>";
@@ -58,15 +53,15 @@ if ($resultado->num_rows > 0) {
         echo "<td>{$fila['estado']}</td>";
         echo "<td>{$fila['opinion']}</td>";
         echo "<td class='text-center'>
-        <div class='d-flex justify-content-center gap-2'>
-          <a href='edit.php?id={$fila['id']}' class='btn btn-sm btn-warning' title='Editar'>✏️</a>
-          <a href='delete.php?id={$fila['id']}' class='btn btn-sm btn-danger' title='Eliminar' onclick=\"return confirm('¿Estás seguro de eliminar?')\">🗑️</a>
-        </div>
-      </td>";
-
+                <div class='d-flex justify-content-center gap-2'>
+                  <a href='edit.php?id={$fila['id']}' class='btn btn-sm btn-warning' title='Editar'>✏️</a>
+                  <a href='delete.php?id={$fila['id']}' class='btn btn-sm btn-danger' title='Eliminar' onclick=\"return confirm('¿Estás seguro de eliminar?')\">🗑️</a>
+                </div>
+              </td>";
+        echo "</tr>"; // <== agregado
     }
 
-    // Navegación
+    // Paginación
     echo "<tr><td colspan='10' class='text-center'>";
     for ($i = 1; $i <= $totalPaginas; $i++) {
         $clase = ($i == $pagina) ? "btn-dark" : "btn-outline-secondary";
